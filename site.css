@@ -81,16 +81,77 @@ footer {
     color: var(--secondary-color);
 }
 
-.phone-card {
+.phone-grid{
     display: grid;
-    border: 1px solid black;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+
+    max-width: 800px; 
+    margin: 0 auto;
+
+}
+
+.products-h2{
+    text-align: center;
+}
+
+.phone-card {
+    
+    background-color: white;
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.phone-card figcaption{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin: 20px 0px 0 0;
 }
 
 .phone-card img {
     width: 100%;
     height: 250px;
     object-fit: scale-down;
+}
+
+
+
+.add-to-cart{
+    margin: 15px;
+}
+
+.modal-overlay{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 1000;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-overlay:target{
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+    color: black; /* Så texten syns mot vit bakgrund */
 }
