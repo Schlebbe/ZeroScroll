@@ -1,14 +1,78 @@
-header{
-    background-color: #b87370;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: #65b5db;
+:root {
+    --primary-color: #b87370;
+    --secondary-color: #65b5db;
+    --background-color: #ffe4e0;
+    --footer-color: #a8122a;
 }
 
-html, body{
-    background-color: #ffe4e0;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-footer{
-    background-color: #a8122a;
+header {
+    background-color: var(--primary-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--secondary-color);
+}
 
+html,
+body {
+    background-color: var(--background-color);
+}
+
+footer {
+    background-color: var(--footer-color);
+}
+
+.logo {
+    display: flex;
+}
+
+.logo > h2 {
+    margin: auto 0;
+    padding-left: 8px;
+}
+
+.logo > img {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.nav-container {
+    height: 120px;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+}
+
+.nav-container .navbar {
+    justify-content: space-between;
+}
+
+.nav-container .navbar ul li {
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 85%;
+    margin: auto;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: var(--secondary-color);
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
 }
