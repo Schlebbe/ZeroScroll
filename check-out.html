@@ -1,56 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>check-out</title>
-    <link rel="stylesheet" href="site.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>check-out</title>
+        <link rel="stylesheet" href="site.css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
         <header>
             <div class="nav-container">
                 <div class="navbar">
                     <a href="index.html" class="logo">
-                        <img src="logo.png" alt="Zero Scroll Logo">
+                        <img src="logo.png" alt="Zero Scroll Logo" />
                         <h2>Zero Scroll</h2>
                     </a>
-                        <nav>
+                    <nav>
                         <ul>
                             <li><a href="catalog.html">Catalog</a></li>
                             <li><a href="check-out.html">Check Out</a></li>
                         </ul>
-                    </div>
+                    </nav>
                 </div>
-            </nav>
+            </div>
         </header>
 
         <main>
-              <!-- Produkter visas här -->
-                <section class="products">
-                    <h2>Shop Retro Phones</h2>
-                    <div class="products-container"></div> <!-- JS fyller denna -->
-                </section>
+            <section class="checkout">
+                <h2>Checkout</h2>
 
-            <!-- Checkout -->
-                <section class="checkout">
-                     <h2>Checkout</h2>
-                     <form class="checkout-form">
-                 <!-- JS kan skapa formfält dynamiskt om du vill -->
-                    <button type="submit" class="checkout-btn">Power Up & Pay ⚡</button>
-                     </form>
+                <!-- Formulär -->
+                <form class="checkout-form">
+                    <label for="name">Full Name</label>
+                    <input
+                        id="name"
+                        type="text"
+                        placeholder="John Doe"
+                        required
+                    />
 
-                    <!-- Order Summary -->
-                    <aside class="order-summary">
-                    <h2>Your Order</h2>
-                    <!-- JS fyller denna -->
-                    </aside>
-                </section>
+                    <label for="email">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="john@email.com"
+                        required
+                    />
+
+                    <label for="address">Address</label>
+                    <input
+                        id="address"
+                        type="text"
+                        placeholder="123 Retro Street"
+                        required
+                    />
+
+                    <label for="card">Card Number</label>
+                    <input
+                        id="card"
+                        type="text"
+                        placeholder="1234 5678 9012 3456"
+                        inputmode="numeric"
+                        autocomplete="cc-number"
+                        required
+                    />
+
+                    <button type="submit" class="checkout-btn">
+                        Power Up & Pay ⚡
+                    </button>
+                </form>
+
+                <!-- Order summary -->
+                <aside class="order-summary">
+                    <!-- JS fyller cart här -->
+                </aside>
+            </section>
         </main>
 
         <footer>
             <p>© 2026 Zero Scroll. All rights reserved.</p>
         </footer>
-
-</body>
+    </body>
 </html>
