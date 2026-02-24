@@ -86,6 +86,7 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     padding: 20px;
+    justify-content: center;
 
     max-width: 800px; 
     margin: 0 auto;
@@ -111,6 +112,14 @@ footer {
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
+
+    transition: transform 0.3s ease;
+}
+
+.phone-card:hover{
+    transform: scale(1.05); /* Zoomar in kortet lite grann */
+    cursor: pointer;        
+    z-index: 10;
 }
 
 .phone-card figcaption{
@@ -154,4 +163,22 @@ footer {
     width: 300px;
     position: relative;
     color: black; /* Så texten syns mot vit bakgrund */
+}
+
+.close-btn{
+    position: absolute;
+    top: 10px;
+    right:15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
