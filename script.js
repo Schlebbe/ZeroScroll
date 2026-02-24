@@ -11,6 +11,15 @@ const products = [
 // --- Hämta cart från localStorage ---
 let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
+// --- Fyll cart med dummydata om tom ---
+if (cartItems.length === 0) {
+    cartItems = [
+        { id: 1, name: "Motorolla RAZR 3", price: 675, quantity: 1 },
+        { id: 3, name: "Samsung e330", price: 750, quantity: 2 },
+    ];
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+}
+
 // --- Spara cart i localStorage ---
 function saveCart() {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -41,27 +50,6 @@ function displayCatalog() {
     });
 }
 
-// --- Funktion för checkout / order summary ---
-function updateOrderSummary() {
-    const summary = document.querySelector(".order-summary");
-    if (!summary) return; // Om det inte finns på sidan
-
-    summary.innerHTML = "<h2>Your Order</h2>";
-    let total = 0;
-
-    if (cartItems.length === 0) {
-        summary.innerHTML += "<p>Your cart is empty.</p>";
-        return;
-    }
-
-    cartItems.forEach((item) => {
-        total += item.price;
-        summary.innerHTML += `<p>${item.name} - $${item.price}</p>`;
-    });
-
-    summary.innerHTML += `<p><strong>Total: $${total}</strong></p>`;
-}
-
 // --- Kör rätt funktion beroende på sida ---
 const currentPage = window.location.pathname;
 
@@ -69,23 +57,31 @@ if (currentPage.includes("catalog.html")) {
     displayCatalog();
 }
 
-if (currentPage.includes("checkout.html")) {
-    updateOrderSummary();
-
+if (currentPage.includes("check-out.html")) {
     // Lägg till submit på checkout-form
     const form = document.querySelector(".checkout-form");
     if (form) {
         form.addEventListener("submit", (e) => {
             e.preventDefault();
-            if (cartItems.length === 0) {
-                alert("Your cart is empty!");
-                return;
+            // Get cart data
+            const cart = JSON.parse(localStorage.getItem("cartItems") || "[]");
+            if (cart.length === 0) {
+                orderDetails.innerHTML = "<p>No items purchased.</p>";
+            } else {
+                orderDetails.innerHTML = cart
+                    .map(
+                        (item) => `
+                        <div class="order-item">
+                            <p><strong>${item.name}</strong> x ${item.quantity}</p>
+                            <p>Price: $${item.price}</p>
+                        </div>
+                        `,
+                    )
+                    .join("");
             }
-            alert("Order complete! Thank you for shopping Zero Scroll 😎");
-            cartItems = [];
-            saveCart();
-            updateOrderSummary();
-            form.reset();
+
+            // Show modal
+            document.getElementById("orderModalToggle").checked = true;
         });
     }
 }

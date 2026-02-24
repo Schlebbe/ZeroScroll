@@ -18,7 +18,11 @@
                     <nav>
                         <ul>
                             <li><a href="catalog.html">Catalog</a></li>
-                            <li><a href="check-out.html" class="active">Check Out</a></li>
+                            <li>
+                                <a href="check-out.html" class="active"></a>
+                                    Check Out
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -27,8 +31,13 @@
 
         <main>
             <section class="checkout">
-                <h2>Checkout</h2>
-
+                <div class="checkout-description">
+                    <h1>Complete Your Purchase</h1>
+                    <p>
+                        You're almost done! Fill in your details below to pay
+                        for your selected products and finalize your order.
+                    </p>
+                </div>
                 <!-- Formulär -->
                 <form class="checkout-form">
                     <label for="name">Full Name</label>
@@ -65,15 +74,26 @@
                         required
                     />
 
-                    <button type="submit" class="checkout-btn">
-                        Power Up & Pay ⚡
-                    </button>
-                </form>
+                    <button type="submit" class="pay-btn">Pay</button>
 
-                <!-- Order summary -->
-                <aside class="order-summary">
-                    <!-- JS fyller cart här -->
-                </aside>
+                    <!-- Hidden checkbox controlling modal -->
+                    <input type="checkbox" id="orderModalToggle" hidden />
+
+                    <!-- Modal -->
+                    <div class="checkout-modal">
+                        <label
+                            for="orderModalToggle"
+                            class="modal-background"
+                        ></label>
+                        <div class="modal-content">
+                            <h2>Order Summary</h2>
+                            <div id="orderDetails"></div>
+                            <label for="orderModalToggle" class="close-btn">
+                                ✕
+                            </label>
+                        </div>
+                    </div>
+                </form>
             </section>
         </main>
 
